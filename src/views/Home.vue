@@ -8,18 +8,16 @@
       <div class="right">
         <label for="email">Email</label>
         <input id="email" v-model="inputEmail" type="text">
-        <div id="passGroup"> <!-- Nisam bio siguran kako bez diva da napravim ovo-->
+        <div id="passGroup">
           <label for="pass">Password</label>
           <button @click="changeVisibility" id="eyeBtn"><i v-bind:class="eye"></i></button>
-        </div> <!-- precica za pozivanje metode sa @, sv je sta koristis al praksa je v- za sve sto je vue -->
-        <input id="pass" v-model="inputPass" v-bind:type="visible" v-on:keyup.enter="validate"> <!-- bilo koji html atribut moze da se poveze sa nekim data elementom -->
+        </div> 
+        <input id="pass" v-model="inputPass" v-bind:type="visible" v-on:keyup.enter="validate">
         <div v-if="hasError">{{error}}</div>
         <button v-on:click="validate" id="loginBtn">Log in</button>
-        <!-- {{visible}} -->
       </div>
     </div>
-    <p>1. email: <u>basic@basic.com</u> | pass: <u>secret</u></p>
-    <p>2. email: <u>admin@admin.com</u> | pass: <u>secret</u></p>
+    <p>email: <u>show@cars.com</u> | pass: <u>secret</u></p>
   </div>
 </template>
 
@@ -31,10 +29,8 @@ export default {
   name: 'Home',
   data: function(){ //ubacis ovde ovako da vracas data
     return {
-      email: 'basic@basic.com',
+      email: 'show@cars.com',
       pass:'secret',
-      adminEmail:'admin@admin.com',
-      adminPass:'secret',
       inputEmail:'',
       inputPass:'',
       visible: 'password',
@@ -57,9 +53,6 @@ export default {
       if(this.inputEmail === this.email && this.inputPass === this.pass){
         //this.hasError = false;
         this.$router.push({path: '/basic_user'}) //ovim definises na koji view da te posalje. Mora this jer nije pozvan na ovom elementu. Mora ovako
-        alert('Validation successful');
-      } else if(this.inputEmail === this.adminEmail && this.inputPass === this.adminPass){
-        this.$router.push({path: '/admin'}) //ovim definises na koji view da te posalje. Mora this jer nije pozvan na ovom elementu. Mora ovako
         alert('Validation successful');
       } else {
         this.hasError = true;

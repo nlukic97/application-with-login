@@ -1,40 +1,42 @@
 <template>
   <div class="admin">
-    <router-link to="/">Log out</router-link>
-    <h1>Hello, <u>basic user</u>.</h1>
-    <p>Have a nice day !</p>
-    <Navigation/>
-    <Card v-bind:title='this.cars[0].title' v-bind:price="this.cars[0].price" v-bind:carImage="this.cars[0].url"/>
-    <Card v-bind:title='this.cars[1].title' v-bind:price="this.cars[1].price" v-bind:carImage="this.cars[1].url"/>
-    <Card v-bind:title='this.cars[2].title' v-bind:price="this.cars[2].price" v-bind:carImage="this.cars[2].url"/>
+    <h1>Cars</h1>
+    <div class="cars-display" :class="this.textColor">
+        <Card v-for="(carObj, index) in cars" v-bind:key="index" v-bind:title='carObj.title' v-bind:price="carObj.price" v-bind:year="carObj.year" v-bind:carImage="carObj.url" v-bind:description="carObj.description"/>
+      </div>    
   </div>
 </template>
 <script>
-import Navigation from '@/components/Navigation.vue'
 import Card from '@/components/Card.vue'
 export default {
   name: 'basic-user',
   components: {
-    Navigation,
     Card
   },
   data(){
     return {
+      textColor:'black', // I do not know how to change this from the app
       cars:[
         {
-          title:"car nummer 1",
-          price: '£1000',
-          url:'https://api.ferrarinetwork.ferrari.com/v2/network-content/medias/resize/5d371735c3f9ec0af647572d-ferrari_488pista_intro_socialshare?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF&width=1080'
+          title:"Ferarri",
+          price: '£265.000',
+          year:'2020',
+          url:'https://api.ferrarinetwork.ferrari.com/v2/network-content/medias/resize/5d371735c3f9ec0af647572d-ferrari_488pista_intro_socialshare?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF&width=1080',
+          description:'Lorem 1 ipsum dolor sit amet consectetur adipisicing elit. Totam suscipit ex exercitationem inventore excepturi, sequi nam impedit neque non alias?'
         },
         {
-          title:"car nummer 2",
-          price: '£2000',
-          url: 'https://live.staticflickr.com/8682/16105614840_4b3fb5a981_b.jpg'
+          title:"Lamborghini",
+          price: '£200.000',
+          year:'2017',
+          url: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Lamborghini_Sian_at_IAA_2019_IMG_0332.jpg',
+          description:'Lorem 2 ipsum dolor sit amet consectetur adipisicing elit. Totam suscipit ex exercitationem inventore excepturi, sequi nam impedit neque non alias?'
         },
         {
-          title:"car nummer 3",
-          price: '£3000',
-          url: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Zastava_Jugo_45_F.jpg'
+          title:"Tesla Cybertruck",
+          price: '£312.000',
+          year:'2018',
+          url: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-tesla-cyber-truck-mmp-1-1579127142.jpg',
+          description:'Lorem 3 ipsum dolor sit amet consectetur adipisicing elit. Totam suscipit ex exercitationem inventore excepturi, sequi nam impedit neque non alias?'
         }
       ]
     }
@@ -42,5 +44,18 @@ export default {
 }
 </script>
 <style>
+  .cars-display {
+    display:flex;
+    justify-content: center;
+    align-items:baseline;
+    flex-wrap: wrap;
+    margin:0 auto;
+  }
 
+  .white {
+    color: white;
+  }
+  .black {
+    color: black;
+  }
 </style>

@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import basic_user from '../views/basic_user.vue'
-import admin from '../views/admin.vue'
 
 Vue.use(VueRouter)
 
@@ -16,11 +15,6 @@ Vue.use(VueRouter)
     path:'/basic_user',
     name:'basic_user',
     component: basic_user
-  },
-  {
-    path:'/admin',
-    name:'admin',
-    component: admin
   }
 ]
 
