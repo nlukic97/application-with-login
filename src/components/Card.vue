@@ -1,7 +1,9 @@
 <template>
   <div class="box">
     <h2>{{title}}</h2>
-    <img v-bind:src="carImage" v-bind:alt="title"> <!-- whatever the title is in the api, will be the alt -->
+    <div class="imageContainer">
+      <img v-bind:src="carImage" v-bind:alt="title"> <!-- whatever the title is in the api, will be the alt -->
+    </div>
     <p><span>Price: </span> {{price}}</p>
     <p><span>Year: </span> {{year}}</p>
     <p><span>About: </span> {{description}}</p>
@@ -19,7 +21,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .box {
   box-sizing: border-box;;
   // border:1px solid #333;
@@ -28,6 +30,12 @@ export default {
   min-height:485px;
   margin: 0 15px 50px 15px;
   padding:15px;
+  .imageContainer {
+    height:195px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   p {
     text-align: left;
     width:80%;

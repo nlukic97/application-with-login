@@ -124,12 +124,6 @@ export default {
             background-color:#32475C;
             box-shadow: 0px 0px 6px 0px;
           }
-          &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus { //still an issue on autocomplete
-          border: none;
-          -webkit-text-fill-color: red;
-          -webkit-input-fill-background-color:red;
-          //-webkit-box-shadow: none;
-          }
         }
         label{
           font-size: 14px;

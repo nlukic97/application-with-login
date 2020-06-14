@@ -1,7 +1,7 @@
 <template>
   <div class="admin">
     <h1>Cars</h1>
-    <div class="cars-display" :class="this.textColor">
+    <div class="cars-display">
         <Card v-for="(carObj, index) in cars" v-bind:key="index" v-bind:title='carObj.title' v-bind:price="carObj.price" v-bind:year="carObj.year" v-bind:carImage="carObj.url" v-bind:description="carObj.description"/>
       </div>    
   </div>
@@ -50,12 +50,5 @@ export default {
     align-items:baseline;
     flex-wrap: wrap;
     margin:0 auto;
-  }
-
-  .white {
-    color: white;
-  }
-  .black {
-    color: black;
   }
 </style>
